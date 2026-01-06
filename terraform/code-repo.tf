@@ -74,7 +74,7 @@ resource "google_cloudbuildv2_connection" "my_gitlab_connection" {
 # 3. 链接具体的代码仓库
 resource "google_cloudbuildv2_repository" "my_repo" {
   name              = "${var.repo_username}-${local.project_name}"
-  location          = var.region
+  location          = google_cloudbuildv2_connection.my_gitlab_connection.location
   parent_connection = google_cloudbuildv2_connection.my_gitlab_connection.id
   remote_uri        = "https://gitlab.com/${var.repo_username}/${local.project_name}.git"
 }

@@ -47,11 +47,11 @@ variable "repo_username" {
 variable "gitlab_personal_access_token_api" {
   type        = string
   description = "GitLab Personal Access Token for API"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "gitlab_personal_access_token_read_api" {
   type        = string
   description = "GitLab Personal Access Token for Read"
-  sensitive = true
+  sensitive   = true
 }
