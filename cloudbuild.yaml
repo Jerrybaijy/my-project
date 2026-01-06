@@ -76,7 +76,7 @@ steps:
 
 substitutions:
   _OCI_REGISTRY: asia-east2-docker.pkg.dev/project-60addf72-be9c-4c26-8db/my-docker-repo
-  _PROJECT_NAME: my-gcp
+  _PROJECT_NAME: my-project
   _BACKEND_NAME: backend
   _FRONTEND_NAME: frontend
   _BACKEND_DIR: backend

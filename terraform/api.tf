@@ -2,7 +2,6 @@ locals {
   services = [
     "cloudbuild.googleapis.com",          # Cloud Build API
     "secretmanager.googleapis.com",       # Secret Manager API
-    "cloudresourcemanager.googleapis.com" # Cloud Resource Manager API
   ]
 }
 

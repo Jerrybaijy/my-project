@@ -78,23 +78,3 @@ resource "google_cloudbuildv2_repository" "my_repo" {
   parent_connection = google_cloudbuildv2_connection.my_gitlab_connection.id
   remote_uri        = "https://gitlab.com/${var.repo_username}/${local.project_name}.git"
 }
-
-# 4. 创建触发器
-resource "google_cloudbuild_trigger" "my_trigger" {
-  name     = local.trigger_name
-  location = google_cloudbuildv2_repository.my_repo.location
-  repository_event_config {
-    repository = google_cloudbuildv2_repository.my_repo.id
-    push {
-      branch = "^main$"
-    }
-  }
-  filename = "cloudbuild.yaml"
-
-  included_files = [
-    "backend/**",
-    "frontend/**",
-    "helm-chart/**"
-  ]
-}
-
