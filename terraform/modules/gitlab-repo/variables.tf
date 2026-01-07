@@ -2,7 +2,6 @@
 variable "prefix" {
   type        = string
   description = "Project prefix"
-  default     = "my"
 }
 
 locals {
@@ -15,19 +14,11 @@ locals {
 variable "project_id" {
   type        = string
   description = "GCP Project ID"
-  default     = "project-60addf72-be9c-4c26-8db"
 }
 
 variable "region" {
   type        = string
   description = "GCP Region"
-  default     = "asia-east2"
-}
-
-variable "zone" {
-  type        = string
-  description = "GCP Zone"
-  default     = "asia-east2-a"
 }
 
 # --- Repo ---
