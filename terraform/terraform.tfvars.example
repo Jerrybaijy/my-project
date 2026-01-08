@@ -1,0 +1,2 @@
+gitlab_personal_access_token_api      = "Your GitLab api_token"
+gitlab_personal_access_token_read_api = "Your GitLab read_api_token"
