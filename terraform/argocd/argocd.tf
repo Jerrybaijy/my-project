@@ -33,7 +33,19 @@ resource "helm_release" "argocd" {
     {
       name  = "server.service.loadBalancerSourceRanges"
       value = "{${var.my_external_ip}/32}"
-    }
+    },
+    {
+      name  = "repoServer.serviceAccount.create"
+      value = "false" # 使用我们上面定义的 SA，不自动创建
+    },
+    {
+      name  = "repoServer.serviceAccount.name"
+      value = "argocd-repo-server" # 关联自定义 SA
+    },
+    {
+      name  = "repoServer.automountServiceAccountToken"
+      value = "true" # 强制开启 automount
+    },
   ]
 }
 
@@ -52,5 +64,7 @@ resource "kubernetes_secret_v1" "gar_repo_secret" {
     type      = "helm"
     url       = local.chart_repo_url
     enableOCI = "true"
+    username  = "_json_key" # GAR Workload Identity 认证必填
+    password  = ""          # 空密码，使用 Pod 内元数据认证
   }
 }
