@@ -34,7 +34,7 @@ variable "repo_username" {
   default     = "jerrybai"
 }
 
-# --- Secrets ---
+# --- GitLab repo token ---
 variable "gitlab_personal_access_token_api" {
   type        = string
   description = "GitLab Personal Access Token for API"

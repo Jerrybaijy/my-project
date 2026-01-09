@@ -75,13 +75,14 @@ steps:
         fi
 
 substitutions:
-  _OCI_REGISTRY: asia-east2-docker.pkg.dev/project-60addf72-be9c-4c26-8db/my-docker-repo
-  _PROJECT_NAME: my-project
+  _PREFIX: my
+  _OCI_REGISTRY: asia-east2-docker.pkg.dev/project-60addf72-be9c-4c26-8db/${_PREFIX}-docker-repo
+  _PROJECT_NAME: ${_PREFIX}-project
   _BACKEND_NAME: backend
   _FRONTEND_NAME: frontend
   _BACKEND_DIR: backend
   _FRONTEND_DIR: frontend
-  _CHART_NAME: my-chart
+  _CHART_NAME: ${_PREFIX}-chart
   _CHART_DIR: helm-chart
 
 options:

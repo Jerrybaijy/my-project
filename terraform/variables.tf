@@ -18,13 +18,7 @@ variable "region" {
   default     = "asia-east2"
 }
 
-variable "zone" {
-  type        = string
-  description = "GCP Zone"
-  default     = "asia-east2-a"
-}
-
-# --- Secrets ---
+# --- GitLab repo token ---
 variable "gitlab_personal_access_token_api" {
   type        = string
   description = "GitLab Personal Access Token for API"
@@ -34,5 +28,25 @@ variable "gitlab_personal_access_token_api" {
 variable "gitlab_personal_access_token_read_api" {
   type        = string
   description = "GitLab Personal Access Token for Read"
+  sensitive   = true
+}
+
+# --- Cloud SQL ---
+variable "mysql_root_password" {
+  type        = string
+  description = "MySQL root user password"
+  sensitive   = true
+}
+
+variable "mysql_jerry_password" {
+  type        = string
+  description = "MySQL jerry user password"
+  sensitive   = true
+}
+
+# --- Argo CD ---
+variable "my_external_ip" {
+  type        = string
+  description = "My external IP access to Argo CD"
   sensitive   = true
 }
