@@ -17,12 +17,4 @@ provider "helm" {
     token                  = data.google_client_config.default.access_token
     cluster_ca_certificate = base64decode(module.gke.cluster_ca_certificate)
   }
-
-  registries = [
-    {
-      url      = "oci://asia-east2-docker.pkg.dev"
-      username = "oauth2accesstoken"
-      password = data.google_client_config.default.access_token
-    }
-  ]
 }
